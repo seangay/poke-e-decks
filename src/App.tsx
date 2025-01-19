@@ -1,11 +1,10 @@
 import "./App.css";
-import CardDetail from "./components/CardDetail";
+import CardSearch from "./components/CardSearch";
 
 function App() {
   return (
     <>
-      <h1>THIS IS THE POKE-E-DECKS!</h1>
-      <CardDetail slug="xy3-1" />
+      <CardSearch />
     </>
   );
 }

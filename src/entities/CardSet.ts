@@ -1,4 +1,4 @@
 export default interface CardSet {
-  id: string; 
+  id: string;
   name: string;
 }
