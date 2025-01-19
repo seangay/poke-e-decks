@@ -1,20 +1,21 @@
 import axios, { AxiosRequestConfig } from "axios";
-import Card from "../entities/Card";
 
-export interface FetchResponse<T> {
+export interface SearchResponse<T> {
+  page: number;
+  pageSize: number;
+  totalCount: number;
   count: number;
-  next: string | null;
-  results: T[];
+  data: T[];
 }
 
-export interface ApiResponse<T> {
+export interface GetResponse<T> {
   data: T;
 }
 
 const axiosInstance = axios.create({
   baseURL: "https://api.pokemontcg.io/v2/",
   headers: {
-    'X-Api-Key': `${import.meta.env.VITE_POKEMON_TCG_API_KEY}`,
+    "X-Api-Key": `${import.meta.env.VITE_POKEMON_TCG_API_KEY}`,
   },
 });
 
@@ -25,15 +26,16 @@ class TcgApiClient<T> {
     this.endpoint = endpoint;
   }
 
-  // getAll = async (config: AxiosRequestConfig) => {
-  //   const res = await axiosInstance
-  //     .get<FetchResponse<T>>(this.endpoint, config);
-  //   return res.data;
-  // };
+  search = (config: AxiosRequestConfig) => {
+    return axiosInstance
+      .get<SearchResponse<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
 
   get = async (id: number | string) => {
-    const res = await axiosInstance.get<ApiResponse<T>>(this.endpoint + "/" + id);
-    console.log("RESPONSE ISasdasdasd:-------->", res)
+    const res = await axiosInstance.get<GetResponse<T>>(
+      this.endpoint + "/" + id
+    );
     return res.data.data;
   };
 }
