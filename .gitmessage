@@ -1,0 +1,10 @@
+# Title: A short description of the commit with issue ref at end in brackets
+#
+# Body: Detailed explanation of the commit (optional)
+# - Bullet points of changes
+# - Include references to issues like #123, #456
+
+# Example
+# Fix login issue (Fixes #123)
+# - Update authentication logic
+# - Add additional logging for debugging
