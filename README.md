@@ -1,3 +1,27 @@
+# Brain dump until I write better README
+
+## Getting absolute references working for imports
+
+### Adding compiler support for absolute references
+Add the following into `tsconfig.json` and `tsconfig.app.json`
+```json
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+```
+
+
+### VS Code setup
+Add the following to your user `settings.json` and restart VS Code. You should now have "@/" notation being used for 
+imports.
+```json
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+```
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
