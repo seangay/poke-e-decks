@@ -1,10 +1,10 @@
-import "./App.css";
-import CardSearch from "./components/CardSearch";
+import "@/App.css";
+import Demo from "@/components/Demo";
 
 function App() {
   return (
     <>
-      <CardSearch />
+      <Demo />
     </>
   );
 }
