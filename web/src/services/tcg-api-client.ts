@@ -13,10 +13,7 @@ export interface GetResponse<T> {
 }
 
 const axiosInstance = axios.create({
-  baseURL: "https://api.pokemontcg.io/v2/",
-  headers: {
-    "X-Api-Key": `${import.meta.env.VITE_POKEMON_TCG_API_KEY}`,
-  },
+  baseURL: "/api",
 });
 
 class TcgApiClient<T> {
